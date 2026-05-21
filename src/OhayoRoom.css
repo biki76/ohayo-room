@@ -1,0 +1,44 @@
+/* ═══════════════════════════════════════════════════════════════
+   🌸 OhayoRoom — Layout & Container Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+.ohayo-room {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: var(--light);
+  font-family: var(--font-sans);
+  color: var(--dark);
+  position: relative;
+}
+
+.ohayo-room__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ohayo-room__controls {
+  background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .ohayo-room {
+    flex-direction: row;
+  }
+  .ohayo-room__content {
+    flex-direction: row;
+  }
+  .ohayo-room__controls {
+    border-top: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.04);
+    width: 200px;
+  }
+}

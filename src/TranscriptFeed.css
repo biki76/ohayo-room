@@ -1,0 +1,56 @@
+/* ═══════════════════════════════════════════════════════════════
+   🌸 TranscriptFeed — Scrollable Transcript Area Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+.transcript-feed {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--light) 0%, var(--white) 60%);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.transcript-feed::-webkit-scrollbar {
+  width: 4px;
+}
+
+.transcript-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transcript-feed::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.transcript-feed__empty {
+  text-align: center;
+  padding: 45px 16px;
+  margin: auto 0;
+}
+
+.transcript-feed__empty-icon {
+  font-size: 3.2rem;
+  margin-bottom: 14px;
+  filter: grayscale(0.25);
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.transcript-feed__empty-title {
+  font-size: var(--text-md);
+  margin: 0 0 6px;
+  font-weight: var(--weight-medium);
+  color: var(--dark);
+}
+
+.transcript-feed__empty-subtitle {
+  font-size: var(--text-sm);
+  margin: 0;
+  color: var(--muted);
+  opacity: 0.75;
+}

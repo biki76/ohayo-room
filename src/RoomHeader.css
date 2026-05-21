@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════════════════
+   🌸 RoomHeader — Sticky Header Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+.room-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  min-height: 56px;
+}
+
+.room-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.room-header__status {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.room-header__status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.room-header__status-dot--connected {
+  background-color: var(--success);
+  box-shadow: 0 0 8px var(--success), 0 0 16px rgba(40, 167, 69, 0.25);
+}
+
+.room-header__status-dot--disconnected {
+  background-color: var(--danger);
+}
+
+.room-header__status-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.room-header__status-pulse--connected {
+  background-color: var(--success);
+}
+
+.room-header__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--light);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.room-header__subtitle {
+  margin: 2px 0 0;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.room-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.room-header__btn {
+  border-radius: var(--radius-md);
+  padding: 7px 12px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--transition-base);
+  outline: none;
+  border: 1.5px solid transparent;
+}
+
+.room-header__btn--mute {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--light);
+}
+
+.room-header__btn--mute:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.room-header__btn--mute-active {
+  background: rgba(220, 53, 69, 0.2);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.room-header__btn--leave {
+  background: rgba(220, 53, 69, 0.12);
+  border-color: rgba(220, 53, 69, 0.3);
+  color: var(--danger);
+}
+
+.room-header__btn--leave:hover {
+  background: rgba(220, 53, 69, 0.2);
+}

@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════════
+   🌸 MicButton — Press-and-Hold Control Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+.mic-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 16px 6px;
+}
+
+/* ─── Waveform ─── */
+.mic-button__waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.mic-button__waveform-bar {
+  width: 2.5px;
+  border-radius: 1.5px;
+  background: linear-gradient(180deg, var(--sakura), var(--cyan));
+  flex-shrink: 0;
+  transition: height 0.1s ease;
+}
+
+/* ─── Button Container ─── */
+.mic-button__container {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-button__ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 157, 0.15);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.mic-button__ripple:nth-child(2) { animation-delay: 0.65s; }
+.mic-button__ripple:nth-child(3) { animation-delay: 1.3s; }
+
+/* ─── SVG Rings ─── */
+.mic-button__rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.mic-button__ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.mic-button__ring-audio {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-linecap: round;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.15s ease;
+}
+
+.mic-button__ring-duration {
+  fill: none;
+  stroke-linecap: round;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.2s ease;
+}
+
+.mic-button__ring-duration--normal { stroke: var(--sakura); }
+.mic-button__ring-duration--warning { stroke: var(--gold); }
+
+/* ─── Main Button ─── */
+.mic-button__btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  color: var(--light);
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  outline: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.mic-button__btn:active:not(:disabled) {
+  transform: scale(0.86);
+}
+
+.mic-button__btn--idle {
+  background: linear-gradient(135deg, var(--dark), var(--darker));
+  box-shadow: 0 4px 18px rgba(26, 26, 46, 0.12);
+}
+
+.mic-button__btn--recording {
+  background: linear-gradient(135deg, var(--sakura), var(--cyan));
+  box-shadow: 0 0 30px rgba(255, 107, 157, 0.3), 0 0 60px rgba(255, 107, 157, 0.12);
+  animation: mic-pulse 1.5s ease-in-out infinite;
+}
+
+.mic-button__btn--disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ─── Status Text ─── */
+.mic-button__status {
+  margin: 12px 0 0;
+  font-size: var(--text-sm);
+  text-align: center;
+  min-height: 18px;
+  transition: color 0.2s ease;
+}
+
+.mic-button__status--recording {
+  color: var(--sakura);
+  font-weight: var(--weight-semibold);
+}
+
+.mic-button__status--idle {
+  color: var(--muted);
+  font-weight: var(--weight-normal);
+}
